@@ -34,7 +34,7 @@ const WORKS = [
 
   { id: 9, title: "Revolution Beauty", img: "/f9-beautydupes.jpg" },
   { id: 10, title: "Loyds Pharmacy", img: "/f10-stitest.jpg" },
-  { id: 11, title: "Pretty Little Things", img: "/f11-outfit.jpg" },
+  { id: 11, title: "PrettyLittleThing", img: "/f11-outfit.jpg" },
 ];
 
 const FeaturedWork = () => {
@@ -78,7 +78,7 @@ const FeaturedWork = () => {
                   whileHover={{ x: 20 }}
                   className="group py-2 md:py-2 cursor-pointer border-b border-white/5 last:border-none"
                 >
-                  <h3 className="text-white text-2xl md:text-4xl lg:text-[90px] font-medium   leading-[0.9] tracking-tighter transition-all duration-500 group-hover:text-[#A7F3D0]">
+                  <h3 className="text-white text-2xl md:text-4xl lg:text-[80px] font-medium   leading-[0.9] tracking-tighter transition-all duration-500 group-hover:text-[#A7F3D0]">
                     {work.title}
                   </h3>
                 </motion.div>
@@ -87,10 +87,10 @@ const FeaturedWork = () => {
           </div>
 
           {/* RIGHT COLUMN: Massive Images */}
-          <div className="w-full md:w-[65%] h-full relative z-10 px-4 md:px-12 overflow-hidden">
+          <div className="w-full md:w-[65%] h-full relative z-10 px-4 md:px-2 overflow-hidden">
             <motion.div
               style={{ y: rightY }}
-              className="flex flex-col gap-15 md:gap-10 pt-[5vh] pb-[5vh]"
+              className="flex flex-col gap-15 md:gap-10 pt-[5vh] pb-[2vh]"
             >
               {WORKS.map((work) => (
                 <div
@@ -98,7 +98,7 @@ const FeaturedWork = () => {
                   className="w-full flex justify-center items-center"
                 >
                   {/* Container scale increased to 100% of column minus small padding */}
-                  <div className="w-full max-w-[800px] aspect-[16/11] overflow-hidden rounded-[30px] md:rounded-[55px] shadow-2xl ring-1 ring-white/10 bg-neutral-900">
+                  <div className="w-full max-w-[800px] aspect-[16/11] overflow-hidden rounded-[20px] md:rounded-[20px] shadow-2xl ring-1 ring-white/10 bg-neutral-900">
                     <img
                       src={work.img}
                       alt={work.title}
