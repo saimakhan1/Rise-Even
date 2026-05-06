@@ -91,9 +91,25 @@ const WhatsNew = () => {
           </h1>
         </div>
 
-        <button className="group flex items-center gap-2 border border-black/20 rounded-full px-6 py-2.5 hover:bg-black hover:text-white transition-all duration-300">
-          <span className="text-sm font-semibold">Explore More Thoughts</span>
-          <span className="text-xs">↗</span>
+        {/* <button className="group flex items-center gap-2  bg-white rounded-full px-6 py-2.5 hover:bg-black hover:text-white transition-all duration-300">
+          <span className="text-lg font-semibold">Explore More Thoughts</span>
+          <span className="text-lg">↗</span>
+        </button> */}
+        <button
+          className="
+  group flex items-center gap-2 bg-white text-black px-6 py-2.5 
+  transition-all duration-500 ease-in-out
+  /* Start with a high number for the oval look */
+  rounded-[40px] 
+  /* Force a lower number on hover for the rectangle look */
+  hover:rounded-md 
+   
+"
+        >
+          <span className="text-lg font-semibold">Explore More Thoughts</span>
+          <span className="text-lg transition-transform duration-300 group-hover:rotate-45">
+            ↗
+          </span>
         </button>
       </div>
 
