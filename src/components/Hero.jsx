@@ -127,11 +127,11 @@ const Hero = () => {
   // 🔥 5 images (add your real assets here)
   const images = useMemo(
     () => [
-      "/src/assets/images/hero1.jpg",
-      "/src/assets/images/hero2.jpg",
-      "/src/assets/images/hero3.jpg",
-      "/src/assets/images/hero4.jpg",
-      "/src/assets/images/hero5.jpg",
+      "/hero1.jpg",
+      "/hero2.jpg",
+      "/hero3.jpg",
+      "/hero4.jpg",
+      "/hero5.jpg",
     ],
     [],
   );
