@@ -2,8 +2,8 @@ import React from "react";
 
 const ChasingConsumers = () => {
   // Update these paths to match your local folder structure (e.g., /src/assets/consumer-1.jpg)
-  const imageOne = "/public/consumer.jpg";
-  const imageTwo = "/public/consumer2.jpg";
+  const imageOne = "/consumer.jpg";
+  const imageTwo = "/consumer2.jpg";
 
   return (
     <section className="relative w-full overflow-hidden bg-[#f2f1ef] py-20 border-y border-gray-100">

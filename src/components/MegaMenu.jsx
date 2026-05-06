@@ -2,9 +2,9 @@ import React from "react";
 
 const MegaMenu = ({ type }) => {
   const images = {
-    services: "/src/assets/images/service.jpg",
-    international: "/src/assets/images/international.jpg",
-    about: "/src/assets/images/about.jpg",
+    services: "/service.jpg",
+    international: "/international.jpg",
+    about: "/about.jpg",
   };
 
   return (

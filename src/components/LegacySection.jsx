@@ -344,10 +344,10 @@ const LegacySection = () => {
                   scale: index === 0 ? 1 : scale,
                   zIndex: CARDS.length - index, // Pioneers (index 0) stays on top
                 }}
-                className={`absolute w-[95%] max-w-[850px] h-[75vh] md:h-[80vh] rounded-[48px] shadow-2xl p-8 md:p-20 flex flex-col items-center text-center justify-center border-none ${card.bgColor} ${card.textColor}`}
+                className={`absolute w-[65%] max-w-[650px] h-[75vh] md:h-[80vh] rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col items-center text-center justify-center border-none ${card.bgColor} ${card.textColor}`}
               >
                 {/* Large Image Container */}
-                <div className="mb-8 overflow-hidden rounded-3xl w-48 h-48 md:w-72 md:h-72">
+                <div className="mb-8 overflow-hidden rounded-2xl w-38 h-48 md:w-52 md:h-72">
                   <img
                     src={card.img}
                     alt={card.title}
@@ -356,7 +356,7 @@ const LegacySection = () => {
                 </div>
 
                 {/* Massive Typography */}
-                <h3 className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tighter">
+                <h3 className="text-5xl md:text-6xl font-medium mb-6 tracking-tighter">
                   {card.title}
                 </h3>
 
@@ -365,7 +365,7 @@ const LegacySection = () => {
                 </p>
 
                 {(card.mission || card.extra) && (
-                  <p className="text-sm md:text-xl font-bold max-w-2xl border-t border-current pt-4">
+                  <p className="text-sm md:text-xl  max-w-2xl border-current pt-4">
                     {card.mission || card.extra}
                   </p>
                 )}

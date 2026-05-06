@@ -20,9 +20,7 @@ const TopBar = () => {
             <span className="font-medium text-[14px]">
               Where are your customers actually searching?
             </span>
-            <span className="underline underline-offset-4 font-medium">
-              Download the report
-            </span>
+            <span className=" font-medium">Download the report</span>
           </div>
 
           {/* HOVER TEXT */}
