@@ -182,7 +182,8 @@ const Hero = () => {
 
         {/* 🔹 MOBILE FOOTER INFO (Visible on small screens) */}
         <div className="lg:hidden absolute bottom-8 w-full px-6 text-xs md:text-sm font-medium opacity-70 tracking-widest uppercase">
-          London • New York • Manchester • Sheffield
+          4 Global Offices serving <br />
+          UK, USA (New York) & EU
         </div>
       </div>
     </div>
