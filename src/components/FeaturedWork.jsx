@@ -12,8 +12,8 @@ const WORKS = [
     title: "SIXT",
     img: "/f1-carrental.jpg",
     year: "[2023-2025]",
-    hoverColor: "#ff5f3d",
-    hoverText: "A premium car rental experience.",
+    hoverColor: "#f39c12",
+    hoverText: "An extra 3m clicks regionally through SEO",
     badgeColor: "#A7F3D0",
   },
   {
@@ -21,8 +21,8 @@ const WORKS = [
     title: "Dojo-B2B",
     img: "/f2-dojo.jpg",
     year: "[2021-2025]",
-    hoverColor: "#3bffb4",
-    hoverText: "Payment solutions for better business.",
+    hoverColor: "#fab1a0",
+    hoverText: "A B2B success story for Dojo card machine",
     badgeColor: "#A7F3D0",
   },
   {
@@ -36,8 +36,8 @@ const WORKS = [
     ),
     img: "/f3-magnet.jpg",
     year: "[2023-2024]",
-    hoverColor: "#ffc84f",
-    hoverText: "Kitchens designed for trade.",
+    hoverColor: "#a29bfe",
+    hoverText: "A full service SEO success story 170% + increase.",
     badgeColor: "#A7F3D0",
   },
   {
@@ -50,8 +50,8 @@ const WORKS = [
     ),
     img: "/f4-esims.jpg",
     year: "[2023-2025]",
-    hoverColor: "#4f9dff",
-    hoverText: "Travel connected with global E-Sims.",
+    hoverColor: "#f39c12",
+    hoverText: "Increasing brand and non brand visibility UK/ES",
     badgeColor: "#A7F3D0",
   },
   {
@@ -59,8 +59,8 @@ const WORKS = [
     title: "JD Sports",
     img: "/f5-family.jpg",
     year: "[2025]",
-    hoverColor: "#1a49e0",
-    hoverText: "The undisputed king of trainers.",
+    hoverColor: "#74b9ff",
+    hoverText: "65% up YoY in clicks for JDSports, FR, IT, ES",
     badgeColor: "#A7F3D0",
   },
   {
@@ -68,8 +68,8 @@ const WORKS = [
     title: "Parkdean Resorts",
     img: "/f6-esterbreaks.jpg",
     year: "[2019-2025]",
-    hoverColor: "#ff4f81",
-    hoverText: "Creating amazing memories.",
+    hoverColor: "#f3a683",
+    hoverText: "Dominating google and AI search",
     badgeColor: "#A7F3D0",
   },
   {
@@ -77,8 +77,8 @@ const WORKS = [
     title: "Pooky",
     img: "/f7-recharchablelight.jpg",
     year: "[2025]",
-    hoverColor: "#ff593b",
-    hoverText: "Beautiful lights for beautiful homes.",
+    hoverColor: "#00cec9",
+    hoverText: "Driving Demand for Pooky Rechargeable Lights",
     badgeColor: "#A7F3D0",
   },
   {
@@ -86,8 +86,8 @@ const WORKS = [
     title: "Parkdean Resorts",
     img: "/f8-ukholidays.jpg",
     year: "[2019-2025]",
-    hoverColor: "#ff4f81",
-    hoverText: "UK's largest holiday park operator.",
+    hoverColor: "#a29bfe",
+    hoverText: "Social search and multi talent content #1.",
     badgeColor: "#A7F3D0",
   },
   {
@@ -95,8 +95,8 @@ const WORKS = [
     title: "Revolution Beauty",
     img: "/f9-beautydupes.jpg",
     year: "[2022-2025]",
-    hoverColor: "#00e0ff",
-    hoverText: "Makeup Revolution. Accessible Beauty.",
+    hoverColor: "#fab1a0",
+    hoverText: "Building the UK's beauty dupe brand.",
     badgeColor: "#A7F3D0",
   },
   {
@@ -104,8 +104,8 @@ const WORKS = [
     title: "Loyds Pharmacy",
     img: "/f10-stitest.jpg",
     year: "[2022-2023]",
-    hoverColor: "#3bff4f",
-    hoverText: "Healthcare for life.",
+    hoverColor: "#74b9ff",
+    hoverText: "Driving category leadership for STI tests.",
     badgeColor: "#A7F3D0",
   },
   {
@@ -113,8 +113,8 @@ const WORKS = [
     title: "PrettyLittleThing",
     img: "/f11-outfit.jpg",
     year: "[2021-2023]",
-    hoverColor: "#ff4f81",
-    hoverText: "Fashion. Beauty. Lifestyle.",
+    hoverColor: "#ffb8b8",
+    hoverText: 'Driving discovery everything for "outfits" PLT',
     badgeColor: "#A7F3D0",
   },
 ];
@@ -146,7 +146,7 @@ const FeaturedWork = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="3"
+      strokeWidth="2"
     >
       <line x1="7" y1="17" x2="17" y2="7"></line>
       <polyline points="7 7 17 7 17 17"></polyline>
@@ -213,7 +213,7 @@ const FeaturedWork = () => {
                     whileHover={{ x: 20 }}
                     className="group py-2 cursor-pointer border-b border-white/5 last:border-none flex items-start gap-3"
                   >
-                    <h3 className="text-white md:text-4xl lg:text-[70px] font-medium leading-[0.9] tracking-tighter transition-all duration-500 group-hover:text-[#A7F3D0]">
+                    <h3 className="text-white md:text-4xl lg:text-[70px] font-medium leading-[0.9] tracking-tighter transition-all duration-500 ">
                       {work.title}
                     </h3>
                     <span className="text-white md:text-[14px] mt-5 font-medium">
@@ -277,7 +277,7 @@ const FeaturedWork = () => {
                               <ArrowIcon />
                             </motion.div>
                             <motion.h4
-                              className="text-black text-5xl font-bold tracking-tighter"
+                              className="text-black text-5xl font-medium tracking-tighter"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                             >

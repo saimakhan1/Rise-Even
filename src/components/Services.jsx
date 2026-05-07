@@ -160,38 +160,32 @@ const services = [
   {
     id: 1,
     name: "Digital PR",
-    image:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+    image: "/digitalPr2.jpg",
   },
   {
     id: 2,
     name: "Organic Social & Content",
-    image:
-      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80",
+    image: "/organicSocial.jpg",
   },
   {
     id: 3,
     name: "Search & Growth Strategy",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    image: "/searchGrowth.jpg",
   },
   {
     id: 4,
     name: "Content Experience",
-    image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+    image: "/contentExperience2.jpg",
   },
   {
     id: 5,
     name: "Data & Insights",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/dataNinsights.jpg",
   },
   {
     id: 6,
     name: "Onsite SEO",
-    image:
-      "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&w=800&q=80",
+    image: "/onsiteseo2.jpg",
   },
 ];
 
