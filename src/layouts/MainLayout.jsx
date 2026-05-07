@@ -13,7 +13,7 @@ import WhatsNew from "../components/WhatsNew";
 
 function MainLayout() {
   return (
-    <>
+    <div className="">
       <TopBar />
       <Navbar />
       <Hero />
@@ -26,7 +26,7 @@ function MainLayout() {
       <WhatsNew></WhatsNew>
       <ReadyToRise></ReadyToRise>
       <Footer> </Footer>
-    </>
+    </div>
   );
 }
 
