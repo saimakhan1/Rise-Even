@@ -38,6 +38,18 @@ const MegaMenu = ({ type }) => {
         "Social SEO/Search": "/socialSeo.jpg",
       },
     },
+
+    industries: {
+      defaultImg: "/my-profile.jpg",
+      columns: [
+        {
+          items: ["B2B Marketing"],
+        },
+      ],
+      itemImages: {
+        "B2B Marketing": "/my-profile.jpg",
+      },
+    },
     international: {
       defaultImg: "/international.jpg",
       columns: [

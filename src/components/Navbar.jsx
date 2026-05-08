@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Services", key: "services" },
+    { name: "Industries", key: "industries" },
     { name: "International", key: "international" },
     { name: "About", key: "about" },
     { name: "Work" },
