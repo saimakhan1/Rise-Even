@@ -27,6 +27,8 @@ const MobileMenu = ({ isOpen, onClose, menuItems }) => {
       "Digital PR",
     ],
 
+    industries: ["B2B Marketing"],
+
     international: ["US Digital PR", "Germany SEO", "Spain Content"],
 
     about: ["Our Culture", "The Risers", "Sustainability"],
@@ -138,10 +140,7 @@ const MobileMenu = ({ isOpen, onClose, menuItems }) => {
             {openAccordion === item.key && submenuContent[item.key] && (
               <div className="pb-5 pt-2 pl-1 flex flex-col gap-3 transition-all">
                 {submenuContent[item.key].map((sub) => (
-                  <p
-                    key={sub}
-                    className="text-gray-400 text-sm sm:text-base font-normal"
-                  >
+                  <p key={sub} className="text-white text-xl font-medium">
                     {sub}
                   </p>
                 ))}
@@ -165,7 +164,7 @@ const MobileMenu = ({ isOpen, onClose, menuItems }) => {
                       <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
                   </p> */}
-                  <p className="flex items-center gap-1 text-white text-sm sm:text-base font-medium">
+                  {/* <p className="flex items-center gap-1 text-white text-sm sm:text-base font-medium">
                     View all{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +181,7 @@ const MobileMenu = ({ isOpen, onClose, menuItems }) => {
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
-                  </p>
+                  </p> */}
                 </div>
               </div>
             )}

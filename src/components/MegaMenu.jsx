@@ -137,7 +137,23 @@ const MegaMenu = ({ type }) => {
         {type === "services" && (
           <button className="absolute bottom-4 right-4 bg-black text-white px-5 py-2.5 text-sm font-medium rounded-xl flex items-center gap-2 hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300 shadow-lg">
             View all services
-            <span className="text-lg leading-none">↗</span>
+            <span className="text-lg leading-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
           </button>
         )}
       </div>
