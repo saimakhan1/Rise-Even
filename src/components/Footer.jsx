@@ -148,7 +148,7 @@ const Footer = () => {
         </div>
 
         {/* Legal Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] md:text-[11px] text-white/60 mt-12 md:mt-16 tracking-[0.1em] md:tracking-[0.15em] uppercase gap-y-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] md:text-[11px] text-white mt-12 md:mt-16 tracking-[0.1em] md:tracking-[0.15em]  gap-y-6">
           <div className="flex flex-col md:flex-row md:items-center gap-x-5 gap-y-3">
             <span>© 2026 Rise at Seven Ltd. All rights reserved</span>
             <div className="flex items-center gap-4">
@@ -197,7 +197,7 @@ const RollingLink = ({ text, isTitle = false }) => {
             hovered: { y: "-100%" },
           }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className={`block whitespace-nowrap ${isTitle ? "text-xl md:text-xl font-bold text-white" : "text-lg md:text-lg font-medium text-white/70"}`}
+          className={`block whitespace-nowrap ${isTitle ? "text-xl md:text-xl font-bold text-white" : "text-lg md:text-lg font-medium text-white"}`}
         >
           {text}
         </motion.span>

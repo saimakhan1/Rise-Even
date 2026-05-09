@@ -18,7 +18,7 @@ const Agencies = () => {
     <div className="w-full bg-[#f2f1ef] py-12 md:py-28 overflow-hidden ">
       <div className="max-w-[1600px] mx-auto px-4 flex flex-col md:flex-row  gap-8 md:gap-0">
         {/* Label - Responsive font size and centering on mobile */}
-        <div className="whitespace-nowrap text-gray-800  md:text-xl font-medium px-4 py-2">
+        <div className="whitespace-nowrap text-gray-600  md:text-sm font-medium px-4 py-2">
           The agency behind ...
         </div>
 

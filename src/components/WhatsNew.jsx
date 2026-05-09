@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react"; // Added useRef
 import { motion, AnimatePresence } from "framer-motion";
 
 const WhatsNew = () => {
@@ -6,7 +6,10 @@ const WhatsNew = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check for mobile to disable hover logic cleanly
+  // --- New State for Progress ---
+  const [scrollProgress, setScrollProgress] = useState(1 / 3);
+  const scrollRef = useRef(null);
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -14,10 +17,25 @@ const WhatsNew = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // --- Scroll Handler for Mobile ---
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      // Calculate how far we've scrolled (0 to 1)
+      const totalScrollable = scrollWidth - clientWidth;
+      const progress = totalScrollable === 0 ? 0 : scrollLeft / totalScrollable;
+
+      // Map 0-1 progress to 1/3-1 range for the bar width
+      const barWidth = 1 / 3 + progress * (2 / 3);
+      setScrollProgress(barWidth);
+    }
+  };
+
   const articles = [
     {
       id: 1,
-      // tag: "News",
+      tag: "News", // Restored tag for consistency
+      authorImage: "/ray.jpg",
       image: "/new1.jpg",
       author: "Ray Saddiq",
       readTime: "3 mins",
@@ -25,7 +43,8 @@ const WhatsNew = () => {
     },
     {
       id: 2,
-      // tag: "Food/Hospitality/Drink",
+      tag: "Growth",
+      authorImage: "/ray.jpg",
       image: "/new2.jpg",
       author: "Ray Saddiq",
       readTime: "2 mins",
@@ -35,6 +54,7 @@ const WhatsNew = () => {
     {
       id: 3,
       tag: "News",
+      authorImage: "/carrie.jpg",
       image: "/new3.jpg",
       author: "Carrie Rose",
       readTime: "2 mins",
@@ -46,7 +66,6 @@ const WhatsNew = () => {
     if (!isMobile) setMousePosition({ x: e.clientX, y: e.clientY });
   };
 
-  // Button Component to avoid repeating styles
   const ExploreButton = ({ className }) => (
     <button
       className={`
@@ -81,7 +100,6 @@ const WhatsNew = () => {
       className="w-full bg-[#f2f1ef] py-10 md:py-12 px-5 md:px-12 font-sans overflow-hidden cursor-default"
       onMouseMove={handleMouseMove}
     >
-      {/* Custom Circular Arrow Cursor - Desktop Only */}
       <AnimatePresence>
         {!isMobile && hoveredIndex !== null && (
           <motion.div
@@ -111,8 +129,7 @@ const WhatsNew = () => {
         )}
       </AnimatePresence>
 
-      {/* Header Section */}
-      <div className="flex justify-between items-end border-b border-black/10 pb-8 mb-10">
+      <div className="flex justify-between items-end border-b border-black/20 pb-8 mb-10">
         <div className="flex items-center flex-wrap gap-x-3">
           <h1 className="text-7xl md:text-8xl font-medium tracking-tight">
             What's
@@ -128,13 +145,15 @@ const WhatsNew = () => {
             New
           </h1>
         </div>
-
-        {/* Desktop Button: Visible beside title on MD screens and up */}
         <ExploreButton className="hidden md:flex mb-2" />
       </div>
 
-      {/* Article Grid - Desktop: Grid | Mobile: Horizontal Scroll */}
-      <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar pb-6">
+      {/* Added ref and onScroll to the grid container */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex md:grid md:grid-cols-3 gap-6 md:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar pb-6"
+      >
         {articles.map((item, index) => (
           <div
             key={item.id}
@@ -142,7 +161,6 @@ const WhatsNew = () => {
             onMouseEnter={() => !isMobile && setHoveredIndex(index)}
             onMouseLeave={() => !isMobile && setHoveredIndex(null)}
           >
-            {/* Image Container */}
             <div className="relative aspect-[4/5] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden mb-6 bg-gray-200">
               <motion.img
                 src={item.image}
@@ -164,11 +182,14 @@ const WhatsNew = () => {
               </div>
             </div>
 
-            {/* Meta Info */}
             <div className="flex items-center gap-4 text-[11px] md:text-xs font-semibold uppercase tracking-wider mb-3 opacity-70">
               <div className="flex items-center gap-2 bg-white/50 md:bg-transparent px-2 py-1 md:p-0 rounded-full">
-                <div className="w-5 h-5 rounded-full bg-gray-400 overflow-hidden">
-                  <div className="w-full h-full bg-slate-300" />
+                <div className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                  <img
+                    src={item.authorImage}
+                    alt={item.author}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <span>{item.author}</span>
               </div>
@@ -190,7 +211,6 @@ const WhatsNew = () => {
               </div>
             </div>
 
-            {/* Title */}
             <h3 className="text-3xl md:text-3xl font-medium leading-[1.1] tracking-tight">
               {item.title}
             </h3>
@@ -198,12 +218,16 @@ const WhatsNew = () => {
         ))}
       </div>
 
-      {/* Progress Bar (Mobile only indicator) */}
+      {/* --- Fixed Progress Bar Section --- */}
       <div className="md:hidden w-full h-[2px] bg-black/10 mb-8 relative">
-        <div className="absolute top-0 left-0 w-2/3 h-full bg-black"></div>
+        <motion.div
+          className="absolute top-0 left-0 h-full bg-black"
+          initial={{ width: "33.33%" }}
+          animate={{ width: `${scrollProgress * 100}%` }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
       </div>
 
-      {/* Mobile-only Button: Original position maintained */}
       <ExploreButton className="w-full md:hidden" />
 
       <style jsx>{`
