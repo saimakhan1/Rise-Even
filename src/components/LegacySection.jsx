@@ -39,29 +39,27 @@ const LegacySection = () => {
   const containerRef = useRef(null);
   const mobileScrollRef = useRef(null);
 
-  // Desktop Scroll Logic
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Mobile Scroll Logic
   const { scrollXProgress } = useScroll({
     container: mobileScrollRef,
   });
+
+  const mobileWidth = useTransform(scrollXProgress, [0, 1], ["33.33%", "100%"]);
 
   return (
     <div
       ref={containerRef}
       className="relative h-auto md:h-[350vh] bg-[#f0f0f0]"
     >
-      {/* MOBILE VERSION */}
+      {/* MOBILE VERSION (UNTOUCHED) */}
       <div className="md:hidden w-full pt-10 pb-24">
         <h2 className="text-center text-base font-medium text-gray-900 mb-6">
           Legacy In The Making
         </h2>
-
-        {/* Horizontal Scroll Container */}
         <div
           ref={mobileScrollRef}
           className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-5 px-6"
@@ -71,7 +69,6 @@ const LegacySection = () => {
               key={`mob-${card.id}`}
               className={`snap-center shrink-0 w-[88vw] min-h-[550px] ${card.bgColor} ${card.textColor} rounded-[32px] p-6 flex flex-col shadow-xl overflow-hidden`}
             >
-              {/* Image */}
               <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6 flex-shrink-0">
                 <img
                   src={card.img}
@@ -79,8 +76,6 @@ const LegacySection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-
-              {/* Text Content */}
               <div className="flex flex-col flex-grow text-center items-center">
                 <h3 className="text-4xl font-medium tracking-tighter mb-4 leading-none">
                   {card.title}
@@ -97,23 +92,17 @@ const LegacySection = () => {
             </div>
           ))}
         </div>
-
-        {/* PERSISTENT INDICATOR: Fixed dark line lower down */}
         <div className="px-12 mt-14">
           <div className="relative w-full h-[4px] bg-gray-300 rounded-full">
             <motion.div
               className="absolute top-0 left-0 h-full bg-black rounded-full"
-              style={{
-                scaleX: scrollXProgress,
-                transformOrigin: "0%",
-                width: "100%",
-              }}
+              style={{ width: mobileWidth, transformOrigin: "0%" }}
             />
           </div>
         </div>
       </div>
 
-      {/* DESKTOP VERSION (UNTOUCHED) */}
+      {/* DESKTOP VERSION (REFINED INCREMENTAL ROTATION) */}
       <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center overflow-hidden">
         <h2 className="mt-8 mb-2 text-base md:text-xl font-medium text-gray-900 tracking-tight z-[100]">
           Legacy In The Making
@@ -125,32 +114,43 @@ const LegacySection = () => {
             const end = start + 0.4;
             const isLastCard = index === CARDS.length - 1;
 
-            const y = useTransform(
+            // --- INCREMENTAL FANNING LOGIC ---
+            // Card 1: 2deg, Card 2: 5deg, Card 3: 8deg (Subtle fanning)
+            const initialRotation = (index + 1) * 2.8;
+
+            // X and Y offset to peek out from the top-left/bottom-right
+            const initialX = index * -4;
+            const initialY = index * 2;
+
+            const yScroll = useTransform(
               scrollYProgress,
               [start, end],
-              ["0vh", "-120vh"],
+              [`${initialY}px`, "-120vh"],
             );
-            const rotate = useTransform(
+
+            const rotateScroll = useTransform(
               scrollYProgress,
               [start, end],
-              [0, -20],
+              [initialRotation, -12],
             );
+
             const scale = useTransform(
               scrollYProgress,
               [start - 0.2, start],
-              [0.96, 1],
+              [0.98, 1],
             );
 
             return (
               <motion.div
                 key={card.id}
                 style={{
-                  y: isLastCard ? "0vh" : y,
-                  rotate: isLastCard ? 0 : rotate,
+                  x: `${initialX}px`,
+                  y: isLastCard ? `${initialY}px` : yScroll,
+                  rotate: isLastCard ? initialRotation : rotateScroll,
                   scale: index === 0 ? 1 : scale,
                   zIndex: CARDS.length - index,
                 }}
-                className={`absolute w-[65%] max-w-[650px] h-[80vh] rounded-[28px] shadow-2xl p-10 flex flex-col items-center text-center justify-center border-none ${card.bgColor} ${card.textColor}`}
+                className={`absolute w-[65%] max-w-[650px] h-[80vh] rounded-[32px] shadow-2xl p-10 flex flex-col items-center text-center justify-center border-none ${card.bgColor} ${card.textColor}`}
               >
                 <div className="mb-8 overflow-hidden rounded-2xl w-52 h-72">
                   <img
@@ -166,7 +166,7 @@ const LegacySection = () => {
                   {card.description}
                 </p>
                 {(card.mission || card.extra) && (
-                  <p className="text-xl max-w-2xl pt-4">
+                  <p className="text-xl max-w-2xl pt-4 border-t border-current/10">
                     {card.mission || card.extra}
                   </p>
                 )}
